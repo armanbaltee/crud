@@ -1,0 +1,38 @@
+
+<form [formGroup]="userData" (ngSubmit)="submitData()">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" formControlName="name" placeholder="Enter Your Name">
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" formControlName="email" placeholder="Enter Your Email">
+    </div>
+    <div>
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password" formControlName="password" placeholder="Enter Your Password">
+    </div>
+    <div>
+        <label for="confpassword">ConfPassword:</label>
+        <input type="text" name="confpassword" id="confpassword" formControlName="confpassword" placeholder="Enter Your ConfPassword">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<div>
+    <button (click)="showData()">Show All Data</button>
+</div>
+
+
+<div class="showData">
+    <ul *ngFor="let user of dataListUser">
+        <!-- <li>{{user.id}}</li> -->
+        <li>{{user.name}}</li>
+        <li>{{user.email}}</li>
+        <li>{{user.password}}</li>
+        <li><button (click)="updateData(user)">Update</button></li>
+        <li><button (click)="deleteData(user.id)">Delete</button></li>
+    </ul>
+</div>
